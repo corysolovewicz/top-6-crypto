@@ -6,28 +6,28 @@ import React from 'react';
 import { shallow, render } from 'enzyme';
 
 import ListItem from 'components/ListItem';
-import RepoListItem from '../RepoListItem';
+import RepoCard from '../RepoCard';
 
-const renderComponent = (props = {}) => render(<RepoListItem {...props} />);
+const renderComponent = (props = {}) => render(<RepoCard {...props} />);
 
-describe.only('<RepoListItem />', () => {
+describe.only('<RepoCard />', () => {
   let item;
 
   // Before each test reset the item data for safety
   beforeEach(() => {
     item = {
       owner: {
-        login: 'flexdinesh'
+        login: 'corysolovewicz'
       },
-      html_url: 'https://github.com/flexdinesh/react-redux-boilerplate',
-      name: 'react-redux-boilerplate',
+      html_url: 'https://github.com/corysolovewicz/top-6-crypto',
+      name: 'top-6-crypto',
       open_issues_count: 20,
-      full_name: 'flexdinesh/react-redux-boilerplate'
+      full_name: 'corysolovewicz/top-6-crypto'
     };
   });
 
   it('should render a ListItem', () => {
-    const renderedComponent = shallow(<RepoListItem item={item} />);
+    const renderedComponent = shallow(<RepoCard item={item} />);
     expect(renderedComponent.find(ListItem).length).toBe(1);
   });
 

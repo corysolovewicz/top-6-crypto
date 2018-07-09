@@ -7,20 +7,22 @@ import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
-import { makeSelectUsername } from 'containers/HomePage/selectors';
 
 /**
  * Github repos request/response handler
  */
 export function* getRepos() {
-  // Select username from store
-  const username = yield select(makeSelectUsername());
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
-
   try {
     // Call our request helper (see 'utils/request')
-    const repos = yield call(request, requestURL);
-    yield put(reposLoaded(repos, username));
+    let repos = []; 
+    repos.push (yield call (request, `https://api.github.com/repos/bitcoin/bitcoin`));
+    repos.push (yield call (request, `https://api.github.com/repos/ethereum/go-ethereum`));
+    repos.push (yield call (request, `https://api.github.com/repos/ripple/rippled`));
+    repos.push (yield call (request, `https://api.github.com/repos/Bitcoin-ABC/bitcoin-abc`));
+    repos.push (yield call (request, `https://api.github.com/repos/EOSIO/eos`));
+    repos.push (yield call (request, `https://api.github.com/repos/litecoin-project/litecoin`));
+
+    yield put(reposLoaded(repos));
   } catch (err) {
     yield put(repoLoadingError(err));
   }

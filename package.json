@@ -1,16 +1,16 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "top-6-crypto",
   "version": "1.0.0",
-  "description": "A minimal react-redux boilerplate with all the best practices",
+  "description": "A project to display github statistics of the top 6 cryptocurrency projects",
   "repository": {
     "type": "git",
-    "url": "git://github.com/flexdinesh/react-redux-boilerplate.git"
+    "url": "git://github.com/corysolovewicz/top-6-crypto.git"
   },
   "engines": {
     "npm": ">=3",
     "node": ">=5"
   },
-  "author": "Dinesh Pandiyan",
+  "author": "Cory Solovewicz",
   "license": "MIT",
   "scripts": {
     "prebuild": "npm run build:clean",
